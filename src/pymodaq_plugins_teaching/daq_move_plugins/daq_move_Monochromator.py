@@ -59,7 +59,7 @@ class DAQ_Move_Monochromator(DAQ_Move_base):
         -------
         float: The position obtained after scaling conversion.
         """
-        ## TODO for your custom plugin
+
 
         pos = DataActuator(data=self.controller.get_wavelength())  # when writing your own plugin replace this line
         pos = self.get_position_with_scaling(pos)
@@ -118,7 +118,7 @@ class DAQ_Move_Monochromator(DAQ_Move_base):
 
         if self.is_master:  # is needed when controller is master
             self.controller = Spectrometer() #  arguments for instantiation!)
-
+            self.controller.tau=0.5
 
         info = "Whatever info you want to log"
         initialized = self.controller.open_communication()
